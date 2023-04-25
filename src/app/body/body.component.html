@@ -1,0 +1,60 @@
+<!--Gornji deo-->
+<mat-toolbar class="mat-toolbar-master">
+  <mat-toolbar-row>
+    <i class="fa fa-bars" aria-hidden="true" (click)="sidenav.toggle()" *ngIf="!opened"></i>
+    <i class="fa fa-bars" aria-hidden="true" (click)="sidenav.toggle()" *ngIf="opened"></i>
+    <a routerLink="/"><img src="../../assets/images/195x50px logo-01.png" width="170" height="45" alt="" ></a>
+
+    <span class="spacer"></span>
+    <button class="logout-button" *ngIf="(accountService.currentUser$ | async)" color="primary" mat-raised-button (click)="logout()">Odjava</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <!--Sa strane-->
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidebar-master">
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+          <a class="sidenav-nav-link" (click)="handleClick(data)"
+              *ngIf="data.items && data.items.length > 0"
+              [ngClass]="getActiveClass(data)"
+          >
+              <i class="sidenav-link-icon" [class]="data.icon"></i>
+              <span class="sidenav-link-text">
+                  {{data.label}}
+              </span>
+              <i *ngIf="data.items" class="menu-collapse-icon"
+                  [ngClass]="!data.expanded ? 'fa fa-angle-right' : 'fa fa-angle-down'"
+              ></i>
+          </a>
+
+          <a class="sidenav-nav-link"
+              *ngIf="!data.items || (data.items && data.items.length === 0)"
+              [routerLink]="[data.routeLink]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+              (click)="shrinkItems(data)"
+              >
+              <i class="sidenav-link-icon" [class]="data.icon"></i>
+              <span class="sidenav-link-text">
+                  {{data.label}}
+              </span>
+          </a>
+          <div *ngIf="data.items && data.items.length > 0">
+              <app-sublevel-menu
+                  [data]="data"
+                  [multiple]="multiple"
+                  [expanded]="data.expanded"
+              ></app-sublevel-menu>
+          </div>
+      </li>
+  </ul>
+  </mat-sidenav>
+
+  <!--Sa strane content-->
+  <mat-sidenav-content>
+    <div class="app-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

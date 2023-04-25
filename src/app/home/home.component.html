@@ -1,0 +1,52 @@
+<div class="container-header">
+  <mat-card class="header-card-elevation-z8">
+    <mat-card-header class="mat-card-header">
+        <mat-card-title class="card-header-title"><h2>Dobro došli</h2></mat-card-title>
+        <mat-card-title class="card-header-title">Aplikacija za evidentiranje i izveštavanje o stanju bankomata na dnevnom nivou.</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="container" *ngIf="!(accountService.currentUser$ | async)">
+  <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>Ukoliko nemate nalog:</mat-card-title>
+        <mat-card-subtitle>1. Potrebno je da kreirate novi AAF zahtev preko linka: <a href="http://europort/Aaf/pages/home.aspx">Europort AAF</a></mat-card-subtitle>
+        <mat-card-subtitle>2. Obratite se kolegama iz IT i odseka Bankomata sa brojem zahteva koji ste prethodno popunili.
+          <a href="mailto:servicedesk@eurobank-direktna.rs?subject=Autorizacija_TIA_Aplikacija&cc=bankomati@eurobank-direktna.rs;IT_Alternative_Channels@eurobank-direktna.rs">
+            Slanje e-maila.</a></mat-card-subtitle>
+        <mat-card-subtitle>3. Nakon realizovanog zahteva dobicete kredencijale za login.</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>Prijava na sistem:</mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form" (ngSubmit)="login()">
+        <mat-form-field class="username-field">
+          <mat-label>Username:</mat-label>
+          <input type="text" [(ngModel)]="model.username" matInput [formControl]="usernameFormControl" >
+          <mat-error *ngIf="usernameFormControl.hasError('required')">
+            Username je <strong>obavezno polje!</strong>
+          </mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="password-field">
+          <mat-label>Lozinka:</mat-label>
+          <input type="password" [(ngModel)]="model.password" matInput [formControl]="passwordFormControl" >
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password je <strong>obavezno polje!</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-login">
+          <button  type="submit" mat-raised-button color='warn'>Prijava</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

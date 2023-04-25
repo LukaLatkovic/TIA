@@ -1,0 +1,50 @@
+.home-card{
+  flex: 1;
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.home-card:first-child {
+  margin-right: 20px;
+}
+
+.container{
+  padding: 50px;
+  display: flex;
+}
+
+.header-card{
+  display: flex;
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.container-header{
+  padding-left: 400px;
+  padding-right: 400px;
+  padding-top: 50px;
+}
+
+.mat-card-header{
+  padding-bottom: 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.card-header-title{
+}
+
+.username-field{
+  width: 50%;
+}
+.password-field{
+  width: 50%;
+}
+
+.login-form{
+}
+
+input {
+  width: 100%;
+}
+
+
