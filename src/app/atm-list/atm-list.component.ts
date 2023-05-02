@@ -1,10 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Atm } from './../_models/atm';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AccountService } from '../_services/account.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Atm } from '../_models/atm';
 import { AtmService } from '../_services/atm.service';
 
 @Component({
@@ -18,22 +16,18 @@ export class AtmListComponent implements OnInit {
     'termCode',
     'description',
     'isActive',
-    'isCashIn'
+    'isCashIn',
+    'Akcije'
   ];
 
   atmData: Atm[] = [];
 
-  dataSource!: MatTableDataSource<any>;
-
-  constructor(public accountService: AccountService, public atmService: AtmService) {}
+  dataSource: MatTableDataSource<Atm> = new MatTableDataSource();
 
   @ViewChild('paginator')
   paginator!: MatPaginator;
 
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+  constructor(public accountService: AccountService, public atmService: AtmService, private _cd: ChangeDetectorRef) {}
 
   ngOnInit(){
     this.getAtms();
@@ -41,12 +35,14 @@ export class AtmListComponent implements OnInit {
 
   getAtms() {
     this.atmService.getAtms()
-    .subscribe((data: Atm[]) =>
-    data.forEach(d=>{
-      this.atmData.push(d);
-    }));
-    this.dataSource = new MatTableDataSource(this.atmData);
-    console.log("this.dataSource");
-    console.log(this.dataSource);
+      .subscribe((data: Atm[]) => {
+        this.atmData = data;
+        this.dataSource = new MatTableDataSource(this.atmData);
+        this.dataSource.paginator = this.paginator;
+      });
+  }
+
+  changeAtmStatus(atmid: number){
+    this.atmService.atmStatusChange(atmid);
   }
 }

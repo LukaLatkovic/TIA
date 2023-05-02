@@ -2,3 +2,36 @@
   padding: 50px;
   overflow: auto;
 }
+
+.mat-mdc-header-row{
+  background-color: lightgray;
+}
+
+.mat-column-id{
+  width: 50px;
+  text-align: center;
+}
+
+.mat-column-termCode{
+  width: 120px;
+  text-align: center;
+}
+
+.mat-column-isActive{
+text-align: center;
+width: 50px;
+}
+
+.mat-column-isCashIn{
+text-align: center;
+width: 50px;
+}
+
+.mat-column-Akcije{
+  text-align: center;
+  width: 100px;
+  }
+
+  .mat-mdc-cell{
+    border-right: 1px solid grey;
+  }

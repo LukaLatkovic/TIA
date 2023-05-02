@@ -1,0 +1,73 @@
+.page{
+  padding: 50px;
+  overflow: auto;
+}
+
+.atm-card{
+  flex: 1;
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.atm-new-form{
+  padding-top: 20px;
+  display: flex;
+}
+
+.container{
+  padding-top: 20px;
+  display: flex;
+}
+
+.atm-card:first-child {
+  margin-right: 20px;
+}
+
+.form-field-1{
+  width: 420px;
+}
+
+
+.form-field-1:first-child{
+  margin-right: 20px;
+}
+
+.form-field-2{
+  width: 200px;
+}
+
+.form-field-2:nth-child(1){
+  margin-right: 20px;
+}
+.form-field-2:nth-child(2){
+  margin-right: 20px;
+}
+.form-field-2:nth-child(3){
+  margin-right: 20px;
+}
+.form-field-2:nth-child(4){
+  margin-right: 20px;
+}
+
+.form-field-3{
+  width: 200px;
+}
+
+.form-field-3:nth-child(1){
+  margin-right: 20px;
+}
+.form-field-3:nth-child(2){
+  margin-right: 20px;
+}
+.form-field-3:nth-child(3){
+  margin-right: 20px;
+}
+.form-field-3:nth-child(4){
+  margin-right: 20px;
+}
+
+.checkbox-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}

@@ -12,6 +12,11 @@ export const navbarData: INavbarData[] = [
             label: 'Lista bankomata',
         },
         {
+          routeLink: 'atm/atm-new',
+          icon: 'fa fa-plus',
+          label: 'Novi bankomat',
+      },
+        {
             routeLink: 'atm/level1.2',
             icon: 'fa fa-users-rays',
             label: 'Korisnik <-> Bankomat',

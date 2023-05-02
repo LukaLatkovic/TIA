@@ -1,5 +1,4 @@
 export interface Atm{
-  id: number,
   termCode: string,
   description: string,
   isActive : boolean,

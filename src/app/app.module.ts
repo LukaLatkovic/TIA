@@ -16,6 +16,7 @@ import { SublevelMenuComponent } from './body/sublevel-menu.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,6 +26,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { AtmNewComponent } from './atm-new/atm-new.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     BodyComponent,
     SublevelMenuComponent,
     AtmListComponent,
-    HomeComponent
+    HomeComponent,
+    AtmNewComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     MatButtonModule,
     HttpClientModule,
     SharedModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
