@@ -17,7 +17,7 @@ export const navbarData: INavbarData[] = [
           label: 'Novi bankomat',
       },
         {
-            routeLink: 'atm/level1.2',
+            routeLink: 'atm/atm-user',
             icon: 'fa fa-users-rays',
             label: 'Korisnik <-> Bankomat',
         }

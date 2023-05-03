@@ -27,6 +27,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { AtmNewComponent } from './atm-new/atm-new.component';
+import { AtmUserComponent } from './atm-user/atm-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AtmNewComponent } from './atm-new/atm-new.component';
     SublevelMenuComponent,
     AtmListComponent,
     HomeComponent,
-    AtmNewComponent
+    AtmNewComponent,
+    AtmUserComponent
   ],
   imports: [
     BrowserModule,
