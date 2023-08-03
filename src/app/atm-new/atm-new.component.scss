@@ -1,10 +1,13 @@
 .page{
-  padding: 50px;
+  position: relative;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   overflow: auto;
 }
 
 .atm-card{
-  flex: 1;
+  flex: 1 1;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
 }
 
@@ -18,12 +21,16 @@
   display: flex;
 }
 
+.form-select-1{
+  width: 350px;
+}
+
 .atm-card:first-child {
   margin-right: 20px;
 }
 
 .form-field-1{
-  width: 420px;
+  width: 350px;
 }
 
 
@@ -32,7 +39,7 @@
 }
 
 .form-field-2{
-  width: 200px;
+  width: 165px;
 }
 
 .form-field-2:nth-child(1){
@@ -49,7 +56,7 @@
 }
 
 .form-field-3{
-  width: 200px;
+  width: 165px;
 }
 
 .form-field-3:nth-child(1){

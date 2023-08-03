@@ -4,6 +4,7 @@ import { Atm } from '../_models/atm';
 import { AccountService } from '../_services/account.service';
 import { AtmService } from '../_services/atm.service';
 import { ToastrService } from 'ngx-toastr';
+import { Branches } from '../_models/branches';
 
 @Component({
   selector: 'app-atm-new',
@@ -22,11 +23,20 @@ export class AtmNewComponent implements OnInit {
   cassette1FormControl = new FormControl('', [Validators.required]);
   cassette2FormControl = new FormControl('', [Validators.required]);
   cassette3FormControl = new FormControl('', [Validators.required]);
-  cassette4FormControl = new FormControl('', [Validators.required]);
+  cassette4FormControl = new FormControl(false);
+  cassete1CurrencyFormControl = new FormControl(false);
+  cassete2CurrencyFormControl = new FormControl(false);
+  cassete3CurrencyFormControl = new FormControl(false);
+  cassete4CurrencyFormControl = new FormControl(false);
+
+
+
+  branchData: Branches[] = [];
 
   constructor(public accountService: AccountService, public atmService: AtmService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
+    this.getBranches();
   }
 
 
@@ -44,6 +54,13 @@ export class AtmNewComponent implements OnInit {
         this.toastr.warning("Nisu sva polja ispravno popunjena!");
       }
 
+  }
+
+  getBranches(){
+    this.atmService.getBranches()
+    .subscribe((data: Branches[]) => {
+      this.branchData = data;
+    });
   }
 
 }

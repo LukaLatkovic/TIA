@@ -1,7 +1,7 @@
 <div class="page">
-  <h1>Novi bankomat</h1>
+  <h3>Novi bankomat</h3>
   <br/>
-    <form class="atm-new-form" (ngSubmit)="atmAdd()">
+    <form class="atm-new-form" (ngSubmit)="atmAdd()" >
       <mat-card class="atm-card">
         <mat-card-header>
           <mat-card-title>Osnovni podaci o bankomatu</mat-card-title>
@@ -24,6 +24,16 @@
               Opis je <strong>obavezno polje!</strong>
             </mat-error>
           </mat-form-field>
+          <section>
+            <mat-form-field class="form-select-1">
+              <mat-label>OJ (Branch)</mat-label>
+              <mat-select [(ngModel)]="model.oj" name="branch">
+                <mat-option *ngFor="let branch of branchData" [value]="branch.branchNumber">
+                  {{branch.branchNumber + " - " + branch.address}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </section>
           <section class="checkbox-section">
             <mat-checkbox  [(ngModel)]="model.isActive" [formControl]="isActiveFormControl">Aktivan</mat-checkbox>
             <mat-checkbox  [(ngModel)]="model.isCashIn" [formControl]="isCashInFormControl" (click)="toggleCashIn()">Cash In?</mat-checkbox>
@@ -38,7 +48,7 @@
             </mat-form-field>
             <mat-form-field class="form-field-2">
               <mat-label>Kaseta 2:</mat-label>
-              <input matInput type="text" [(ngModel)]="model.cassete2_Bill"  [formControl]="cassette2FormControl" value="500">
+              <input matInput type="text" [(ngModel)]="model.cassete2_Bill" matInput [formControl]="cassette2FormControl" value="500">
               <mat-error *ngIf="cassette2FormControl.hasError('required')">
                 Kaseta 2 je <strong>obavezno polje!</strong>
               </mat-error>
@@ -61,28 +71,28 @@
           <section class="select-section">
             <mat-form-field class="form-field-3" appearance="fill">
               <mat-label>Denominacija 1</mat-label>
-              <mat-select required="true">
+              <mat-select required="true" [(ngModel)]="model.cassete1_Currency" matInput [formControl]="cassete1CurrencyFormControl">
                 <mat-option value="941">941 - RSD</mat-option>
                 <mat-option value="978">978 - EUR</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field class="form-field-3" appearance="fill">
               <mat-label>Denominacija 2</mat-label>
-              <mat-select required="true">
+              <mat-select required="true" [(ngModel)]="model.cassete2_Currency" matInput [formControl]="cassete2CurrencyFormControl">
                 <mat-option value="941">941 - RSD</mat-option>
                 <mat-option value="978">978 - EUR</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field class="form-field-3" appearance="fill">
               <mat-label>Denominacija 3</mat-label>
-              <mat-select required="true">
+              <mat-select required="true" [(ngModel)]="model.cassete3_Currency" matInput [formControl]="cassete3CurrencyFormControl">
                 <mat-option value="941">941 - RSD</mat-option>
                 <mat-option value="978">978 - EUR</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field class="form-field-3" appearance="fill">
               <mat-label>Denominacija 4</mat-label>
-              <mat-select required="true">
+              <mat-select required="true" [(ngModel)]="model.cassete4_Currency" matInput [formControl]="cassete4CurrencyFormControl">
                 <mat-option value="941">941 - RSD</mat-option>
                 <mat-option value="978">978 - EUR</mat-option>
               </mat-select>

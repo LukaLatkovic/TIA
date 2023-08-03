@@ -3,6 +3,7 @@ export interface Atm{
   description: string,
   isActive : boolean,
   isCashIn: boolean,
+  oj: string,
   cassete1_Currency: string,
   cassete2_Currency: string,
   cassete3_Currency: string,

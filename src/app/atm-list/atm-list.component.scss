@@ -1,10 +1,18 @@
 .page{
-  padding: 50px;
+  position: relative;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   overflow: auto;
 }
 
 .mat-mdc-header-row{
   background-color: lightgray;
+}
+
+.mat-mdc-form-field {
+  font-size: 20px;
+  float: right;
 }
 
 .mat-column-id{
@@ -14,6 +22,11 @@
 
 .mat-column-termCode{
   width: 120px;
+  text-align: center;
+}
+
+.mat-column-oj{
+  width: 60px;
   text-align: center;
 }
 
@@ -29,7 +42,8 @@ width: 50px;
 
 .mat-column-Akcije{
   text-align: center;
-  width: 100px;
+  width: 400px;
+  align-content: center;
   }
 
   .mat-mdc-cell{

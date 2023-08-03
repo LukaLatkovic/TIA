@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { Atm } from '../_models/atm';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Branches } from '../_models/branches';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,11 @@ export class AtmService {
   constructor(private http: HttpClient, public router: Router, private toastr: ToastrService) { }
 
   getAtms(): Observable<Atm[]>{
-    return this.http.get<Atm[]>(this.baseUrl + '/Atm/getAllAtms')
+    return this.http.get<Atm[]>(this.baseUrl + '/Atm')
   }
 
   addAtm(model: any){
-    return this.http.post<Atm>(this.baseUrl + '/Atm/create-atm', model).subscribe({
+    return this.http.post<Atm>(this.baseUrl + '/Atm', model).subscribe({
       next: () => {
         this.router.navigateByUrl('atm/atm-list');
         this.toastr.success('Uspesno je kreiran novi bankomat u aplikaciji!');
@@ -37,6 +38,10 @@ export class AtmService {
         this.toastr.success("Status bankomata je izmenjen!");
       }
     })
+  }
+
+  getBranches(): Observable<Branches[]>{
+    return this.http.get<Branches[]>(this.baseUrl + '/Branch/getBranches')
   }
   // getAtms(){
   //   return this.http.get<Atm[]>(this.baseUrl + '/Atm/getAllAtms').pipe(
